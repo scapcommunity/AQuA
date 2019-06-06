@@ -148,7 +148,7 @@ How AQuA Works
 
 Figure 1 below provides a look at a typical usage of AQuA.
 
-![](media/image1.tiff){width="6.5in" height="3.270138888888889in"}
+![Figure 1](/media/figure1.tif)
 
 Figure 1. A Potential AQuA Statement Processing Model
 
@@ -284,23 +284,23 @@ advisory is applicable. In order to do this, they use an AQuA domain
 ontology that captures information about software products. A
 hypothetical excerpt from such a domain ontology appears in Table 1:
 
-  \[1\]    \[ \...
-  -------- --------------------------------------------------
-  \[2\]    {"COMPUTER" : \[
-  \[3\]    \...
-  \[4\]    { "Name" : "Id", "Type" : "STRING" },
-  \[5\]    \...
-  \[6\]    \]
-  \[7\]    },
-  \[8\]    {"SOFTWARE" : \[
-  \[9\]    \...
-  \[10\]   { "Name" : "installedOn", "Type" : "COMPUTER" },
-  \[11\]   { "Name" : "Name", "Type" : "STRING" },
-  \[12\]   { "Name" : "Version", "Type" : "STRING" },
-  \[13\]   \...
-  \[14\]   \]
-  \[15\]   }
-  \[16\]   }
+  \[1\]    \[ \...  
+  -------- --------------------------------------------------  
+  \[2\]    {"COMPUTER" : \[  
+  \[3\]    \...  
+  \[4\]    { "Name" : "Id", "Type" : "STRING" },  
+  \[5\]    \...  
+  \[6\]    \]  
+  \[7\]    },  
+  \[8\]    {"SOFTWARE" : \[  
+  \[9\]    \...  
+  \[10\]   { "Name" : "installedOn", "Type" : "COMPUTER" },  
+  \[11\]   { "Name" : "Name", "Type" : "STRING" },  
+  \[12\]   { "Name" : "Version", "Type" : "STRING" },  
+  \[13\]   \...  
+  \[14\]   \]  
+  \[15\]   }  
+  \[16\]   }  
 
 Table 1: Hypothetic Excerpt from an AQuA Domain Ontology
 
@@ -316,12 +316,12 @@ The enterprise has collected inventory information from the endpoints in
 their enterprise and stored this in a database. A hypothetical excerpt
 from such a data source appears in Table 2.
 
-  **computerID**   **softwareName**   **softwareVersion**
-  ---------------- ------------------ ---------------------
-  c1               Firefox            1.2
-  c2               Safari             3.1
-  c3               Firefox            2.3
-  c3               Word               15.1
+  **computerID**  |**softwareName**   |**softwareVersion**  
+  ----------------|:------------------|:------------------|  
+  c1              | Firefox           | 1.2  
+  c2              | Safari            | 3.1  
+  c3              | Firefox           | 2.3  
+  c3              | Word              | 15.1  
 
 Table 2: Hypothetical Excerpt from an Enterprise Data Source
 
@@ -354,19 +354,19 @@ This statement looks for computers that have Firefox installed and
 reports each such computer along with the name (always Firefox) and
 version of that software:
 
-+-------+----------------------------------+
-| \[1\] | SELECT (SOFTWARE sw, COMPUTER c) |
-+=======+==================================+
-| \[2\] | {                                |
-+-------+----------------------------------+
-| \[3\] | > sw.installedOn=c               |
-+-------+----------------------------------+
-| \[4\] | AND sw.Name="Firefox"            |
-+-------+----------------------------------+
-| \[5\] | }                                |
-+-------+----------------------------------+
-| \[6\] | return c.Id, sw.Name, sw.Version |
-+-------+----------------------------------+
++-------+----------------------------------+  
+| \[1\] | SELECT (SOFTWARE sw, COMPUTER c) |  
++=======+==================================+  
+| \[2\] | {                                |  
++-------+----------------------------------+  
+| \[3\] | > sw.installedOn=c               |  
++-------+----------------------------------+  
+| \[4\] | AND sw.Name="Firefox"            |  
++-------+----------------------------------+  
+| \[5\] | }                                |  
++-------+----------------------------------+  
+| \[6\] | return c.Id, sw.Name, sw.Version |  
++-------+----------------------------------+  
 
 Table 4: Example AQuA Statement
 
@@ -424,13 +424,13 @@ In our hypothetical data source, there are two combinations of SOFTWARE
 and COMPUTER instances for which the body would evaluate to TRUE. As a
 result, the AQuA statement would have the following output:
 
-\[
+\[  
 
-{ "c.Id" : "c1", "sw.Name" : "Firefox", "sw.Version" : "1.2" },
+{ "c.Id" : "c1", "sw.Name" : "Firefox", "sw.Version" : "1.2" },  
 
-{ "c.Id" : "c3", "sw.Name" : "Firefox", "sw.Version" : "2.3" }
+{ "c.Id" : "c3", "sw.Name" : "Firefox", "sw.Version" : "2.3" }  
 
-\]
+\]  
 
 This information could be used by local enterprise administrators to
 identify specific endpoints to which the security content applies (using
